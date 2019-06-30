@@ -1,0 +1,20 @@
+.form{
+    padding:20px;
+}
+
+.title{
+    text-align: center;
+}
+
+label, #search{
+    float:left;
+}
+
+label{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+#search{
+    width:100%;
+}
