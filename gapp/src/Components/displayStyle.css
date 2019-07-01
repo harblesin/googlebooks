@@ -1,3 +1,23 @@
-.btn{
-    float: right;
+.card-title {
+  float: left;
+}
+
+.cardTop {
+  padding: 30px;
+  margin-bottom: -30px;
+}
+
+.sub {
+  text-align: left;
+  padding-left: 45px;
+}
+
+.image {
+  float: left;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.sum {
+  display: inline-block;
 }
