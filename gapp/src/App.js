@@ -1,48 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./Components/Navbar"
+import Search from "./pages/search";
+import Books from "./pages/books";
+import NoMatch from "./pages/nomatch";
 import "./App.css";
-import Form from "./Components/Form";
-import Navbar from "./Components/Navbar";
-import Row from "./Components/Row";
-import Col from "./Components/Col";
-import Display from "./Components/Display";
-import Title from "./Components/Title";
-import Results from "./Components/Results";
-import json from "./test.json";
 
-class App extends Component {
-  state = {
-    json
-  };
 
-  render() {
+function App () {
+
     return (
-      <div className="App container">
-        <Navbar />
-        <Title />
-        <Row>
-          <Col width="col-12">
-            <Form />
-          </Col>
-        </Row>
-        <Row>
-          <Col width="col-12">
-            <Results>
-              {this.state.json.map(item => (
-                <Display
-                  key={item.id}
-                  title={item.title}
-                  subtitle={item.subtitle}
-                  author={item.author}
-                  url={item.url}
-                  summary={item.summary}
-                />
-              ))}
-            </Results>
-          </Col>
-        </Row>
+      <Router>
+        <div>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Search} />
+            <Route exact path="/books" component={Books} />
+            <Route component={NoMatch} />
+          </Switch>
       </div>
+      </Router>
+      
     );
   }
-}
 
 export default App;
