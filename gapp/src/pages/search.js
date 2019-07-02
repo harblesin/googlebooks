@@ -6,10 +6,29 @@ import Display from "../Components/Display";
 import Title from "../Components/Title";
 import Results from "../Components/Results";
 import json from "../test.json";
+import API from "../utils/API";
 
 class Search extends Component {
   state = {
-    json
+    json,
+    query: "",
+    books: []
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log("working");
+    this.setState({ query: this.value });
+    API.getBooks(this.state.query).then(res =>
+      this.setState({ books: res.data })
+    );
   };
 
   render() {
@@ -18,13 +37,19 @@ class Search extends Component {
         <Title />
         <Row>
           <Col width="col-12">
-            <Form />
+            <Form
+              value={this.state.query}
+              name="query"
+              onChange={this.handleInputChange}
+              placeholder="  Search for books!"
+              handleFormSubmit={this.handleFormSubmit}
+            />
           </Col>
         </Row>
         <Row>
           <Col width="col-12">
             <Results>
-              {this.state.json.map(item => (
+              {this.state.books.map(item => (
                 <Display
                   key={item.id}
                   title={item.title}
