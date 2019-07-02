@@ -25,9 +25,10 @@ class Search extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("working");
+    console.log(this.state.query)
     this.setState({ query: this.value });
     API.getBooks(this.state.query).then(res =>
-      this.setState({ books: res.data })
+      this.setState({ books: res.data.items })
     );
   };
 

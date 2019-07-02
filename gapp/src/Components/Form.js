@@ -18,7 +18,7 @@ function Form(props) {
         <div className="col-2">
           <button
             className="btn btn-sm btn-danger mt-2"
-            onClick={() => props.handleFormSubmit}
+            onClick={props.handleFormSubmit}
           >
             Search
           </button>
