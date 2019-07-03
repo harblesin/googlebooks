@@ -1,9 +1,15 @@
 import React from "react";
+import "./navbarStyle.css";
 
 function Navbar () {
     return (
-        <div className="navbar">
-            <h1>test</h1>
+        <div className="navbar shadow mb-4">
+            <img className="navbar-brand" src="https://odcspress.org/wp-content/uploads/2017/01/Stack-Books-Copy.jpg" alt=""></img>
+            <div className="navbar-nav">
+                <a className="nav-item nav-link" href="/">Search</a>
+                <a className="nav-item nav-link" href="/books">My Books</a>
+            </div>
+            
         </div>
 
     )
