@@ -11,7 +11,7 @@ function Form(props) {
         <label htmlFor="search">Book</label>
       </div>
       <div className="row">
-        <input id="search" placeholder={props.placeholder} />
+        <input id="search" name={props.name} onChange={props.onChange} placeholder={props.placeholder} />
       </div>
       <div className="row">
         <div className="col-10" />

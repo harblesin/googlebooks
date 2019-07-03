@@ -26,10 +26,17 @@ class Search extends Component {
     event.preventDefault();
     console.log("working");
     console.log(this.state.query)
+    if(this.state.query){
+        this.setState({books: []})
     this.setState({ query: this.value });
     API.getBooks(this.state.query).then(res =>
-      this.setState({ books: res.data.items })
+        { let returning = res.data.items
+            console.log(returning)
+      this.setState({ books: returning })
+        }
     );
+    }
+    
   };
 
   render() {
@@ -40,8 +47,8 @@ class Search extends Component {
           <Col width="col-12">
             <Form
               value={this.state.query}
-              name="query"
               onChange={this.handleInputChange}
+              name="query"
               placeholder="  Search for books!"
               handleFormSubmit={this.handleFormSubmit}
             />
@@ -53,11 +60,11 @@ class Search extends Component {
               {this.state.books.map(item => (
                 <Display
                   key={item.id}
-                  title={item.title}
-                  subtitle={item.subtitle}
-                  author={item.author}
-                  url={item.url}
-                  summary={item.summary}
+                  title={item.volumeInfo.title}
+                  subtitle={item.volumeInfo.subtitle}
+                  author={item.volumeInfo.author}
+                  url={item.volumeInfo.imageLinks.smallThumbnail}
+                  summary={item.volumeInfo.description}
                 />
               ))}
             </Results>
