@@ -10,7 +10,7 @@ export default {
   },
 
   grabBooks: function(){
-    return axios.get("/");
+    return axios.get("/api/books");
   },
 
   saveBook: function(bookInfo) {

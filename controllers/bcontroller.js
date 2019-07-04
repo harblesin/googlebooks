@@ -11,6 +11,6 @@ module.exports = {
   },
 
   saveBook: function(req, res){
-    db.Book.create(req).then(data=> res.json(data))
+    db.Book.create(req.body).then(data=> res.json(data))
   }
 };

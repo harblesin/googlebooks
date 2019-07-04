@@ -10,15 +10,15 @@ import API from "../utils/API"
 class Search extends Component {
   state = {
     json,
-    myBooks: [{"author": "thing"}, {"author": "rnak"}]
+    myBooks: []
   };
 
   populate = () => {
       API.grabBooks().then(data=>{
         console.log(data)
         this.setState({myBooks: data.data})
-        .catch(err => console.log(err));
-    })
+        
+    }).catch(err => console.log(err));
   }
 
   componentDidMount(){
@@ -33,14 +33,14 @@ class Search extends Component {
         <Row>
           <Col width="col-12">
             <Results>
-              {this.state.json.map(item => (
+              {this.state.myBooks.map(item => (
                 <Display
                   key={item.id}
-                  //title={item.title}
-                  //subtitle={item.subtitle}
+                  title={item.title}
+                  subtitle={item.subtitle}
                    author={item.author}
-                //   url={item.url}
-                //   summary={item.summary}
+                    url={item.url}
+                 summary={item.summary}
                 />
               ))}
             </Results>
