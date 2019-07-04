@@ -8,11 +8,13 @@ import Results from "../Components/Results";
 import json from "../test.json";
 import API from "../utils/API";
 
+
 class Search extends Component {
   state = {
     json,
     query: "",
-    books: []
+    books: [],
+    myBooks: []
   };
 
   handleInputChange = event => {
@@ -33,11 +35,16 @@ class Search extends Component {
         { let returning = res.data.items
             console.log(returning)
       this.setState({ books: returning })
-        }
-    );
+        });
+    }};
+
+    saveBook = event => {
+        event.preventDefault();
+        API.saveBook(this.state.books, ).then(res =>
+            console.log("book saved")
+            //this.setState({myBooks: res})
+            )
     }
-    
-  };
 
   render() {
     return (

@@ -7,5 +7,18 @@ export default {
         query +
         "&key=AIzaSyAbzlJ9jTvlCx4gkk2H3NqpY4T81H0DqDo"
     );
+  },
+
+  grabBooks: function(){
+    return axios.get("/");
+  },
+
+  saveBook: function(bookInfo) {
+    return axios.post("/", bookInfo);
+  },
+
+  deleteBook: function(id) {
+    return axios.delete("/books", id)
   }
+
 };
