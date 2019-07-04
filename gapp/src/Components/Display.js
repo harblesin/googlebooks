@@ -9,8 +9,8 @@ function Display(props) {
           <h3 className="card-title">{props.title}</h3>
         </div>
         <div className="col-3">
-          <button className="btn btn-warning btn-sm mr-3 shadow">View</button>
-          <button className="btn btn-info btn-sm shadow">Save</button>
+          <button id={props.id} className="btn btn-warning btn-sm mr-3 shadow">View</button>
+          <button id={props.id} name={props.name} onClick={props.saveBook} className="btn btn-info btn-sm shadow">Save</button>
         </div>
       </div>
       <div className="row">
