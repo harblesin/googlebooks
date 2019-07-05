@@ -43,14 +43,20 @@ class Search extends Component {
     saveBook = event => {
         //event.preventDefault();
         console.log(event.currentTarget.id)
-        let selected = event.currentTarget.id;
         console.log(event.target.title)
             API.saveBook({
+                // title: "yes",
+                // subtitle: "yes",
+                // author: "yes",
+                // url: "yes",
+                // summary: "yes",
+                // image: "yes"
                 title: event.target.title,
                 subtitle: event.target.subtitle,
                 author: event.target.author,
                 url: event.target.url,
-                summary: event.target.summary
+                summary: event.target.summary,
+                image: event.target.url
             })
             .then(()=>console.log("saved"))
         }
