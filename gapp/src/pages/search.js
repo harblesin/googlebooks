@@ -36,22 +36,26 @@ class Search extends Component {
         { let returning = res.data.items
             console.log(returning)
       this.setState({ books: returning })
+      console.log(returning[0].id)
         });
     }};
 
     saveBook = event => {
-        event.preventDefault();
-        const { name, id } = event.target;
-        //this.setState({id: ""})
-        this.setState({
-            [name]: id
-        })
-        console.log(this.state.id)
-        API.saveBook(this.state.books, ).then(res =>
-            console.log("book saved")
-            //this.setState({myBooks: res})
-            )
-    }
+        //event.preventDefault();
+        console.log(event.currentTarget.id)
+        let selected = event.currentTarget.id;
+        console.log(event.target.title)
+            API.saveBook({
+                title: event.target.title,
+                subtitle: event.target.subtitle,
+                author: event.target.author,
+                url: event.target.url,
+                summary: event.target.summary
+            })
+            .then(()=>console.log("saved"))
+        }
+        
+    
 
   render() {
     return (
@@ -73,6 +77,7 @@ class Search extends Component {
             <Results>
               {this.state.books.map(item => (
                 // (item.volumeInfo.imageLinks === undefined) ?
+                
                 <Display
                   key={item.id}
                   id={item.id}

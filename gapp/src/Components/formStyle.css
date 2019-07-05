@@ -18,3 +18,7 @@ label{
 #search{
     width:100%;
 }
+
+input{
+    padding:5px;
+}

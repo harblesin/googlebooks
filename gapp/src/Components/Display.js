@@ -10,7 +10,8 @@ function Display(props) {
         </div>
         <div className="col-3">
           <button id={props.id} className="btn btn-warning btn-sm mr-3 shadow">View</button>
-          <button id={props.id} name={props.name} onClick={props.saveBook} className="btn btn-info btn-sm shadow">Save</button>
+          <button id={props.id} name={props.name} title={props.title} subtitle={props.subtitle} author={props.author} 
+          url={props.url} summary={props.summary} onClick={props.saveBook} className="btn btn-info btn-sm shadow">Save</button>
         </div>
       </div>
       <div className="row">
