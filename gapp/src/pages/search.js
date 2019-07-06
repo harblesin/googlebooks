@@ -50,11 +50,11 @@ class Search extends Component {
 
             API.saveBook({
                 title: this.state.books[newBook].volumeInfo.title,
-        subtitle: this.state.books[newBook].volumeInfo.subtitle,
-        author: this.state.books[newBook].volumeInfo.authors[0],
-        url: this.state.books[newBook].volumeInfo.imageLinks.smallThumbnail,
-        summary: this.state.books[newBook].volumeInfo.description,
-        image: this.state.books[newBook].volumeInfo.smallThumbnail
+                subtitle: this.state.books[newBook].volumeInfo.subtitle,
+                author: this.state.books[newBook].volumeInfo.authors[0],
+                url: this.state.books[newBook].volumeInfo.imageLinks.smallThumbnail,
+                summary: this.state.books[newBook].volumeInfo.description,
+                image: this.state.books[newBook].volumeInfo.imageLinks.smallThumbnail
             })
             .then(()=>console.log("saved"))
             .catch(err=> console.log(err))

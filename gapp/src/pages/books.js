@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Row from "../Components/Row";
 import Col from "../Components/Col";
-import Display from "../Components/Display";
+import MyDisplay from "../Components/MyDisplay";
 import Title from "../Components/Title";
 import Results from "../Components/Results";
 import json from "../test.json";
@@ -26,6 +26,13 @@ class Search extends Component {
         this.populate()
   }
 
+  removeBook = (event) => {
+     // console.log("deleted")
+      console.log(event.target.id)
+      console.log(event.target.title)
+      API.deleteBook(event.target.title).then(()=>console.log("deleted"))
+  }
+
   render() {
     return (
       <div className="App container">
@@ -34,13 +41,15 @@ class Search extends Component {
           <Col width="col-12">
             <Results>
               {this.state.myBooks.map(item => (
-                <Display
+                <MyDisplay
                   key={item.id}
+                  id={item.id}
                   title={item.title}
                   subtitle={item.subtitle}
                    author={item.author}
                     url={item.url}
                  summary={item.summary}
+                 removeBook={this.removeBook}
                 />
               ))}
             </Results>
