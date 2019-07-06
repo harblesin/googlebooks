@@ -7,7 +7,7 @@ module.exports = {
   },
 
   Remove: function(req,res) {
-    db.Book.deleteOne(req.body).then(data => res.json(data))
+    db.Book.deleteOne({title: req.body}).then(data => res.json(data))
   },
 
   saveBook: function(req, res){
