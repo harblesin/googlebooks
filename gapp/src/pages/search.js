@@ -41,28 +41,25 @@ class Search extends Component {
     }};
 
     saveBook = event => {
-        //event.preventDefault();
-        console.log(event.currentTarget.id)
-        console.log(event.target.title)
+        event.preventDefault();
+
+        const ident = event.target.id
+        var newBook = this.state.books.findIndex(function(book, i){
+            return book.id ===  ident
+        })
+
             API.saveBook({
-                // title: "yes",
-                // subtitle: "yes",
-                // author: "yes",
-                // url: "yes",
-                // summary: "yes",
-                // image: "yes"
-                title: event.target.title,
-                subtitle: event.target.subtitle,
-                author: event.target.author,
-                url: event.target.url,
-                summary: event.target.summary,
-                image: event.target.url
+                title: this.state.books[newBook].volumeInfo.title,
+        subtitle: this.state.books[newBook].volumeInfo.subtitle,
+        author: this.state.books[newBook].volumeInfo.authors[0],
+        url: this.state.books[newBook].volumeInfo.imageLinks.smallThumbnail,
+        summary: this.state.books[newBook].volumeInfo.description,
+        image: this.state.books[newBook].volumeInfo.smallThumbnail
             })
             .then(()=>console.log("saved"))
+            .catch(err=> console.log(err))
         }
         
-    
-
   render() {
     return (
       <div className="App container">
@@ -90,21 +87,12 @@ class Search extends Component {
                   name="id"
                   title={item.volumeInfo.title}
                   subtitle={item.volumeInfo.subtitle}
-                  author={item.volumeInfo.author}
+                  
+                  author={item.volumeInfo.authors[0]}
                   url={item.volumeInfo.imageLinks.smallThumbnail}
                   summary={item.volumeInfo.description}
                   saveBook={this.saveBook}
                  /> 
-                // <Display
-                //   key={item.id}
-                //   id={item.id}
-                //   title={item.volumeInfo.title}
-                //   subtitle={item.volumeInfo.subtitle}
-                //   author={item.volumeInfo.author}
-                //   url="https://parker.stanford.edu/assets/default-square-thumbnail-book-large-17ef15e352d894eddd381eb90f648c0880ca1b50505fc9d1e25e53d17a9cc32a.png"
-                //   summary={item.volumeInfo.description}
-                //   saveBook={this.saveBook}
-                // />
               ))}
             </Results>
           </Col>
