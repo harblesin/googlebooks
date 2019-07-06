@@ -5,7 +5,7 @@ import MyDisplay from "../Components/MyDisplay";
 import Title from "../Components/Title";
 import Results from "../Components/Results";
 import json from "../test.json";
-import API from "../utils/API"
+import API from "../utils/API";
 
 class Search extends Component {
   state = {
@@ -14,24 +14,29 @@ class Search extends Component {
   };
 
   populate = () => {
-      API.grabBooks().then(data=>{
-        console.log(data)
-        this.setState({myBooks: data.data})
-        
-    }).catch(err => console.log(err));
+    API.grabBooks()
+      .then(data => {
+        console.log(data);
+        this.setState({ myBooks: data.data });
+      })
+      .catch(err => console.log(err));
+  };
+
+  componentDidMount() {
+    console.log("mounted");
+    this.populate();
   }
 
-  componentDidMount(){
-      console.log("mounted")
-        this.populate()
-  }
-
-  removeBook = (event) => {
-     // console.log("deleted")
-      console.log(event.target.id)
-      console.log(event.target.title)
-      API.deleteBook(event.target.title).then(()=>console.log("deleted"))
-  }
+  removeBook = event => {
+    // console.log("deleted")
+    let book = JSON.stringify(event.target.title);
+    console.log(book);
+    console.log(event.target.id);
+    console.log(event.target.title);
+    API.deleteBook({ title: book }).then(() => {
+      this.populate();
+    });
+  };
 
   render() {
     return (
@@ -46,10 +51,10 @@ class Search extends Component {
                   id={item.id}
                   title={item.title}
                   subtitle={item.subtitle}
-                   author={item.author}
-                    url={item.url}
-                 summary={item.summary}
-                 removeBook={this.removeBook}
+                  author={item.author}
+                  url={item.url}
+                  summary={item.summary}
+                  removeBook={this.removeBook}
                 />
               ))}
             </Results>
