@@ -11,7 +11,6 @@ function MyDisplay(props) {
         <div className="col-3">
           <button className="btn btn-warning btn-sm mr-3 shadow">View</button>
           <button 
-          key={props.key} 
           id={props.id}
           title={props.title}
           onClick={props.removeBook}

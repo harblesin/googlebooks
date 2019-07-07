@@ -10,7 +10,8 @@ import API from "../utils/API";
 class Search extends Component {
   state = {
     json,
-    myBooks: []
+    myBooks: [],
+    id: ""
   };
 
   populate = () => {
@@ -29,11 +30,20 @@ class Search extends Component {
 
   removeBook = event => {
     // console.log("deleted")
-    let book = JSON.stringify(event.target.title);
-    console.log(book);
+    const ident = event.target.id;
+    var newBook = this.state.myBooks.findIndex(function(book, i) {
+      return book.id === ident;
+    });
+
+
+    // const book = event.target.id;
+    // var newId = book
+    // this.setState({id: newId})
+    //console.log(book);
     console.log(event.target.id);
-    console.log(event.target.title);
-    API.deleteBook({ title: book }).then(() => {
+    console.log(this.state.id);
+    console.log(newBook)
+    API.deleteBook({ id: this.state.myBooks[newBook].id }).then(() => {
       this.populate();
     });
   };
@@ -45,9 +55,9 @@ class Search extends Component {
         <Row>
           <Col width="col-12">
             <Results>
-              {this.state.myBooks.map(item => (
+              {this.state.myBooks.map((item, index) => (
                 <MyDisplay
-                  key={item.id}
+                  key={index}
                   id={item.id}
                   title={item.title}
                   subtitle={item.subtitle}
