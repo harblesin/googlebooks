@@ -32,20 +32,25 @@ class Search extends Component {
     // console.log("deleted")
     const ident = event.target.id;
     var newBook = this.state.myBooks.findIndex(function(book, i) {
-      return book.id === ident;
+        console.log(book)
+      return book._id === ident;
     });
 
 
-    // const book = event.target.id;
-    // var newId = book
-    // this.setState({id: newId})
-    //console.log(book);
-    console.log(event.target.id);
-    console.log(this.state.id);
+
+    // this.setState({myBooks: this.state.myBooks.filter(book => this.state.myBooks.indexOf(book) !== newBook )})
+    const book = event.target.id;
+    var newId = book
+    this.setState({id: newId})
+    console.log(book);
+    console.log(this.state.myBooks[newBook].title);
     console.log(newBook)
-    API.deleteBook({ id: this.state.myBooks[newBook].id }).then(() => {
+    const testBook = this.state.myBooks[newBook].title;
+    console.log(testBook)
+    API.deleteBook(testBook).then(() => {
       this.populate();
     });
+    this.populate();
   };
 
   render() {
@@ -58,7 +63,7 @@ class Search extends Component {
               {this.state.myBooks.map((item, index) => (
                 <MyDisplay
                   key={index}
-                  id={item.id}
+                  id={item._id}
                   title={item.title}
                   subtitle={item.subtitle}
                   author={item.author}

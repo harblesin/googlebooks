@@ -8,7 +8,9 @@ module.exports = {
   },
 
   Remove: function(req, res) {
-    db.Book.deleteOne(req.body).then(data => res.json(data));
+    db.Book.deleteOne(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.status(422).json(err));
   },
 
   saveBook: function(req, res) {
