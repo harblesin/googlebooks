@@ -9,7 +9,7 @@ function MyDisplay(props) {
           <h3 className="card-title">{props.title}</h3>
         </div>
         <div className="col-3">
-          <button className="btn btn-warning btn-sm mr-3 shadow">View</button>
+          <a href={props.link} className="btn btn-warning btn-sm mr-3 shadow">View</a>
           <button 
           id={props.id}
           title={props.title}

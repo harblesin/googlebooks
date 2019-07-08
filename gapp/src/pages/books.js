@@ -68,6 +68,7 @@ class Search extends Component {
                   subtitle={item.subtitle}
                   author={item.author}
                   url={item.url}
+                  link={item.link}
                   summary={item.summary}
                   removeBook={this.removeBook}
                 />

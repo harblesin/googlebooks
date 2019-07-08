@@ -9,11 +9,10 @@ function Display(props) {
           <h3 className="card-title">{props.title}</h3>
         </div>
         <div className="col-3">
-          <button id={props.id} className="btn btn-warning btn-sm mr-3 shadow">
+          <a href={props.link} className="btn btn-warning btn-sm mr-3 shadow">
             View
-          </button>
+          </a>
           <button
-            key={props.key}
             id={props.id}
             name={props.name}
             title={props.title}
@@ -32,7 +31,7 @@ function Display(props) {
         <h5 className="col-12 sub">{props.subtitle}</h5>
       </div>
       <div className="row">
-        <h5 className="col-12 sub">{props.author}</h5>
+        <h5 className="col-12 sub">{props.author} </h5>
       </div>
       <div className="row">
         <div className="card-body">

@@ -3,7 +3,17 @@
     width:100px;
 }
 
-.nav-item{
-    
-    display:flex;
+.nav-item, span{
+    font-family: Helvetica, sans-serif;
+    font-size:40px;
+    color:yellowgreen;
+    text-shadow: 1px 1px 0 black,
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
+
+}
+span{
+    margin-top:5px;
 }
