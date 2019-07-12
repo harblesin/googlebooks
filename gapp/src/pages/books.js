@@ -26,6 +26,7 @@ class Search extends Component {
 
   removeBook = event => {
     
+    //Grabs the ID of what is clicked, and finds the corresponding index in the search results array
     const ident = event.target.id;
     var newBook = this.state.myBooks.findIndex(function(book, i) {
       return book._id === ident;

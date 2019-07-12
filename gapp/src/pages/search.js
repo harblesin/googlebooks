@@ -5,12 +5,10 @@ import Col from "../Components/Col";
 import Display from "../Components/Display";
 import Title from "../Components/Title";
 import Results from "../Components/Results";
-import json from "../test.json";
 import API from "../utils/API";
 
 class Search extends Component {
   state = {
-    json,
     query: "",
     books: [],
     myBooks: [],
