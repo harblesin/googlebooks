@@ -42,6 +42,8 @@ class Search extends Component {
       return book.id === ident;
     });
 
+    
+    //Saves the book information into the db using the API utils
     API.saveBook({
       title: this.state.books[newBook].volumeInfo.title,
       subtitle: this.state.books[newBook].volumeInfo.subtitle,
