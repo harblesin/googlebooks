@@ -20,6 +20,7 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  //On component mount, grabs everything from the database, composed of books the user has saved
   componentDidMount() {
     this.populate();
   }
