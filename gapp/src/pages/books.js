@@ -33,6 +33,7 @@ class Search extends Component {
       return book._id === ident;
     });
 
+    //Uses the event.target to find the book within the state thats being clicked and deletes it
     const book = event.target.id;
     var newId = book
     this.setState({id: newId})
