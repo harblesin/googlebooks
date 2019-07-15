@@ -22,6 +22,7 @@ class Search extends Component {
     });
   };
 
+  //On clicking submit, saves the contents of the state into the db
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.query) {
