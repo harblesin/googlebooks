@@ -12,6 +12,7 @@ class Search extends Component {
     id: ""
   };
 
+  //Populates the page with books from the db
   populate = () => {
     API.grabBooks()
       .then(data => {
