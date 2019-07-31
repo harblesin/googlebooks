@@ -15,6 +15,7 @@ class Search extends Component {
     id: ""
   };
 
+  //Simple form input function
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
