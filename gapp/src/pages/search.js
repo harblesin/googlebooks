@@ -39,6 +39,8 @@ class Search extends Component {
   saveBook = event => {
     event.preventDefault();
 
+    //Using the id of the book clickd to find the rest of its information
+    //in the array using its index
     const ident = event.target.id;
     var newBook = this.state.books.findIndex(function(book, i) {
       return book.id === ident;
