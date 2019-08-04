@@ -9,6 +9,7 @@ export default {
     );
   },
 
+  //Define Routes for axios
   grabBooks: function(){
     return axios.get("/api/books");
   },
